@@ -15,37 +15,40 @@ app.use(express.static(path.join(__dirname, '/build/production')))
 server.listen(process.env.PORT || 3000)
 console.log(path.join(__dirname, '/build/production/index.html'))
 
-app.get('/', function (req, res) {
+app.get('/', function(req, res) {
   res.sendfile(path.join(__dirname, '/build/production/index.html'))
 })
 
-function sendToApiai (userInput) {
-  console.log('user input: ' +  userInput)
-  apiapp.textRequest(userInput, options)
-    .on('response', function (response) {
-      console.log(response)
-      sendToClient(response)
-    })
-    .on('error', function (error) {
-      console.log(error)
-    })
+var request
+
+function sendToApiai(userInput) {
+  console.log('user input: ' + userInput)
+  request = apiapp.textRequest(userInput, options)
 }
 
+request.on('response', function(response) {
+  console.log(response)
+  sendToClient(response)
+})
+
+request.on('error', function(error) {
+  console.log(error)
+})
+
 var soc
-io.on('connection', function (socket) {
+io.on('connection', function(socket) {
   console.log('A user is connected')
   soc = socket
-  socket.on('assistance', function (data) {
+  socket.on('assistance', function(data) {
     console.log('Hi: ' + data)
     sendToApiai(data)
   })
-  socket.on('disconnect', function () {
+  socket.on('disconnect', function() {
     console.log('A user is disconnected')
   })
 })
 
-function sendToClient (response, session) {
+function sendToClient(response, session) {
   soc.emit('output', response)
-//   session.send(response)
+    //   session.send(response)
 }
-
