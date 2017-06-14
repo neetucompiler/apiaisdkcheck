@@ -30,7 +30,7 @@ function sendToApiai(userInput) {
   apiapp.textRequest(userInput, options)
     .on('response', function(response) {
       console.log(response)
-    //   sendToClient(response)
+      sendToClient(response.result.fulfillment.speech)
     })
     .on('error', function(error) {
       console.log('ERROR:: ' + error)
