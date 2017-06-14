@@ -19,6 +19,18 @@ app.get('/', function (req, res) {
   res.sendfile(path.join(__dirname, '/build/production/index.html'))
 })
 
+function sendToApiai (userInput) {
+  console.log('user input: ' +  userInput)
+  apiapp.textRequest(userInput, options)
+    .on('response', function (response) {
+      console.log(response)
+      sendToClient(response)
+    })
+    .on('error', function (error) {
+      console.log(error)
+    })
+}
+
 var soc
 io.on('connection', function (socket) {
   console.log('A user is connected')
@@ -34,16 +46,6 @@ io.on('connection', function (socket) {
 
 function sendToClient (response, session) {
   soc.emit('output', response)
-  session.send(response)
+//   session.send(response)
 }
 
-function sendToApiai (userInput) {
-  apiapp.textRequest(userInput, options)
-    .on('response', function (response) {
-      console.log(response)
-      sendToClient(response)
-    })
-    .on('error', function (error) {
-      console.log(error)
-    })
-}
