@@ -19,7 +19,7 @@ app.get('/', function(req, res) {
   res.sendfile(path.join(__dirname, '/build/production/index.html'))
 })
 
-var request
+var request = apiapp.textRequest('hello', options)
 
 function sendToApiai(userInput) {
   console.log('user input: ' + userInput)
