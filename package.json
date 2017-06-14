@@ -1,0 +1,26 @@
+{
+  "name": "hybrid-chatbot-ppm",
+  "version": "1.0.0",
+  "description": "A Hybrid chatbot for PPM",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [
+    "chatbot",
+    "bots",
+    "ppm",
+    "hybrid"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "apiai": "^4.0.2",
+    "express": "^4.15.3",
+    "http": "0.0.0",
+    "path": "^0.12.7",
+    "socket.io": "^2.0.2"
+  },
+  "devDependencies": {
+    "restify": "^4.3.0"
+  }
+}

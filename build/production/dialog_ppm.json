@@ -1,0 +1,358 @@
+[{
+  "id":1,
+  "botMessage": "Hello. Thanks for reaching out to us.",
+  "botMessageType": "dialog",
+  "nextResponse": 100
+},
+{
+  "id": 100,
+  "botMessage": "Choose an option",
+  "botMessageType": "choice",
+  "choice": [{
+    "option": "1. Report Issue",
+    "nextResponse": 2
+  }, {
+    "option": "2. Assistance",
+    "nextResponse": 40
+  }, {
+    "option": "3. Manage",
+    "nextResponse": 27
+  }],
+  "userMessageType": "number",
+  "retryPrompt": "Please select correct option"
+}, {
+  "id": 2,
+  "botMessage": "Please select from below",
+  "botMessageType": "choice",
+  "choice": [{
+    "option": "1. Project",
+    "nextResponse": 3
+  }, {
+    "option": "2. Resource",
+    "nextResponse": ""
+  }, {
+    "option": "3. Error",
+    "nextResponse": ""
+  }, {
+    "option": "4. Performance",
+    "nextResponse": ""
+  }, {
+    "option": "5. Configuration",
+    "nextResponse": ""
+  }, {
+    "option": "6. Workflow",
+    "nextResponse": ""
+  }]
+}, {
+  "id": 3,
+  "botMessage": "Please select from the project related issue",
+  "botMessageType": "choice",
+  "choice": [{
+    "option": "1. Data",
+    "nextResponse": 4
+  }, {
+    "option": "2. Access",
+    "nextResponse": 5
+  }, {
+    "option": "3. Error",
+    "nextResponse": 6
+  }, {
+    "option": "4. Publish",
+    "nextResponse": 7
+  }, {
+    "option": "5. Checked Out",
+    "nextResponse": 8
+  }, {
+    "option": "6. General",
+    "nextResponse": 9
+  }]
+}, {
+  "id": 4,
+  "botMessage": "Please select your question regarding project data",
+  "botMessageType": "autocomplete",
+  "userMessageType": "autocomplete",
+  "nextResponse": 4,
+  "retryPrompt": "Please select correct option"
+}, {
+  "id": 5,
+  "botMessage": "Please select your question regarding project access",
+  "botMessageType": "autocomplete",
+  "userMessageType": "autocomplete",
+  "nextResponse": 5,
+  "retryPrompt": "Please select correct option"
+}, {
+  "id": 6,
+  "botMessage": "Please select your question regarding project error",
+  "botMessageType": "autocomplete",
+  "userMessageType": "autocomplete",
+  "nextResponse": 6,
+  "retryPrompt": "Please select correct option"
+}, {
+  "id": 7,
+  "botMessage": "Please select your question regarding project publish",
+  "botMessageType": "autocomplete",
+  "userMessageType": "autocomplete",
+  "nextResponse": 7,
+  "retryPrompt": "Please select correct option"
+}, {
+  "id": 8,
+  "botMessage": "Please select your question regarding project checkout",
+  "botMessageType": "autocomplete",
+  "userMessageType": "autocomplete",
+  "nextResponse": 8,
+  "retryPrompt": "Please select correct option"
+}, {
+  "id": 9,
+  "botMessage": "Please select your question regarding project general",
+  "botMessageType": "autocomplete",
+  "userMessageType": "autocomplete",
+  "nextResponse": 9,
+  "retryPrompt": "Please select correct option"
+},{
+  "id": 10,
+  "botMessage": "Thanks for your support. The questionnaire will be updated regarding resource access",
+  "botMessageType": "autocomplete",
+  "userMessageType": "autocomplete",
+  "nextResponse": 10,
+  "retryPrompt": "Please select correct option"
+},{
+  "id": 11,
+  "botMessage": "Thanks for your support. The questionnaire will be updated shortly resource data",
+  "botMessageType": "autocomplete",
+  "userMessageType": "autocomplete",
+  "nextResponse": 11,
+  "retryPrompt": "Please select correct option"
+},{
+  "id": 12,
+  "botMessage": "Thanks for your support. The questionnaire will be updated shortly regarding resource error",
+  "botMessageType": "autocomplete",
+  "userMessageType": "autocomplete",
+  "nextResponse": 12,
+  "retryPrompt": "Please select correct option"
+},{
+  "id": 13,
+  "botMessage": "Thanks for your support. The questionnaire will be updated shortly regarding resource general",
+  "botMessageType": "autocomplete",
+  "userMessageType": "autocomplete",
+  "nextResponse": 13,
+  "retryPrompt": "Please select correct option"
+},{
+  "id": 14,
+  "botMessage": "Thanks for your support. The questionnaire will be updated shortly regarding timesheets error",
+  "botMessageType": "autocomplete",
+  "userMessageType": "autocomplete",
+  "nextResponse": 14,
+  "retryPrompt": "Please select correct option"
+},{
+  "id": 15,
+  "botMessage": "Thanks for your support. The questionnaire will be updated shortly regarding timesheets data",
+  "botMessageType": "autocomplete",
+  "userMessageType": "autocomplete",
+  "nextResponse": 15,
+  "retryPrompt": "Please select correct option"
+},{
+  "id": 16,
+  "botMessage": "Thanks for your support. The questionnaire will be updated shortly regarding timesheets error",
+  "botMessageType": "autocomplete",
+  "userMessageType": "autocomplete",
+  "nextResponse": 16,
+  "retryPrompt": "Please select correct option"
+},{
+  "id": 17,
+  "botMessage": "Thanks for your support. The questionnaire will be updated shortly regarding timesheets general",
+  "botMessageType": "autocomplete",
+  "userMessageType": "autocomplete",
+  "nextResponse": 17,
+  "retryPrompt": "Please select correct option"
+},{
+  "id": 18,
+  "botMessage": "Thanks for your support. The questionnaire will be updated shortly regarding views project",
+  "botMessageType": "autocomplete",
+  "userMessageType": "autocomplete",
+  "nextResponse": 18,
+  "retryPrompt": "Please select correct option"
+},{
+  "id": 19,
+  "botMessage": "Thanks for your support. The questionnaire will be updated shortly regarding views resource",
+  "botMessageType": "autocomplete",
+  "userMessageType": "autocomplete",
+  "nextResponse": 19,
+  "retryPrompt": "Please select correct option"
+},{
+  "id": 20,
+  "botMessage": "Thanks for your support. The questionnaire will be updated shortly question regarding error",
+  "botMessageType": "autocomplete",
+  "userMessageType": "autocomplete",
+  "nextResponse": 20,
+  "retryPrompt": "Please select correct option"
+},{
+  "id": 21,
+  "botMessage": "Thanks for your support. The questionnaire will be updated regarding performance MSProjectClient",
+  "botMessageType": "autocomplete",
+  "userMessageType": "autocomplete",
+  "nextResponse": 21,
+  "retryPrompt": "Please select correct option"
+},{
+  "id": 22,
+  "botMessage": "Thanks for your support. The questionnaire will be updated regarding performance ProjectOnlineQueue",
+  "botMessageType": "autocomplete",
+  "userMessageType": "autocomplete",
+  "nextResponse": 22,
+  "retryPrompt": "Please select correct option"
+},{
+  "id": 23,
+  "botMessage": "Thanks for your support. The questionnaire will be updated regarding performance access",
+  "botMessageType": "autocomplete",
+  "userMessageType": "autocomplete",
+  "nextResponse": 23,
+  "retryPrompt": "Please select correct option"
+},{
+  "id": 24,
+  "botMessage": "Thanks for your support. The questionnaire will be updated regarding configuration SecurityGroup",
+  "botMessageType": "autocomplete",
+  "userMessageType": "autocomplete",
+  "nextResponse": 24,
+  "retryPrompt": "Please select correct option"
+},{
+  "id": 25,
+  "botMessage": "Thanks for your support. The questionnaire will be updated regarding configuration Calendar",
+  "botMessageType": "autocomplete",
+  "userMessageType": "autocomplete",
+  "nextResponse": 25,
+  "retryPrompt": "Please select correct option"
+},{
+  "id": 26,
+  "botMessage": "Thanks for your support. The questionnaire will be updated regarding configuration view",
+  "botMessageType": "autocomplete",
+  "userMessageType": "autocomplete",
+  "nextResponse": 26,
+  "retryPrompt": "Please select correct option"
+},{
+  "id": 27,
+  "botMessage": "Please choose",
+  "botMessageType": "choice",
+  "choice": [{
+    "option": "User Access",
+    "nextResponse": 28
+  }, {
+    "option": "Project",
+    "nextResponse": 29
+  }, {
+    "option": "Permission",
+    "nextResponse": 30
+  }]
+},{
+  "id": 28,
+  "botMessage": "Please choose for User related issues",
+  "botMessageType": "choice",
+  "choice": [{
+    "option": "Create",
+    "nextResponse": 31
+  }, {
+    "option": "Update",
+    "nextResponse": 32
+  }, {
+    "option": "Delete",
+    "nextResponse": 33
+  }]
+},{
+  "id": 29,
+  "botMessage": "Please choose for Project related issues",
+  "botMessageType": "choice",
+  "choice": [{
+    "option": "Create",
+    "nextResponse": 34
+  }, {
+    "option": "Update",
+    "nextResponse": 35
+  }, {
+    "option": "Delete",
+    "nextResponse": 36
+  }]
+},{
+  "id": 30,
+  "botMessage": "Please choose for Permission related issues",
+  "botMessageType": "choice",
+  "choice": [{
+    "option": "Create",
+    "nextResponse": 37
+  }, {
+    "option": "Update",
+    "nextResponse": 38
+  }, {
+    "option": "Delete",
+    "nextResponse": 39
+  }]
+},
+{
+  "id": 31,
+  "botMessage": "Please enter the user to create",
+  "botMessageType": "text",
+  "userMessageType": "text",
+  "userInputVar" : "userCreate",
+  "nextResponse": 100
+},{
+  "id": 32,
+  "botMessage": "Please enter the user to update",
+  "botMessageType": "text",
+  "userMessageType": "text",
+  "userInputVar" : "userUpdate",
+  "nextResponse": 100
+},{
+  "id": 33,
+  "botMessage": "Please enter the user to delete",
+  "botMessageType": "text",
+  "userMessageType": "text",
+  "userInputVar" : "userDelete",
+  "nextResponse": 100
+},{
+  "id": 34,
+  "botMessage": "Please enter the project to create",
+  "botMessageType": "text",
+  "userMessageType": "text",
+  "userInputVar" : "projectCreate",
+  "nextResponse": 100
+},{
+  "id": 35,
+  "botMessage": "Please enter the project to update",
+  "botMessageType": "text",
+  "userMessageType": "text",
+  "userInputVar" : "projectUpdate",
+  "nextResponse": 100
+},{
+  "id": 36,
+  "botMessage": "Please enter the project to delete",
+  "botMessageType": "text",
+  "userMessageType": "text",
+  "userInputVar" : "projectDelete",
+  "nextResponse": 100
+},{
+  "id": 37,
+  "botMessage": "Please enter the permission to create",
+  "botMessageType": "text",
+  "userMessageType": "text",
+  "userInputVar" : "permissionCreate",
+  "nextResponse": 100
+},{
+  "id": 38,
+  "botMessage": "Please enter the permission to update",
+  "botMessageType": "text",
+  "userMessageType": "text",
+  "userInputVar" : "permissionUpdate",
+  "nextResponse": 100
+},{
+  "id": 39,
+  "botMessage": "Please enter the permission to delete",
+  "botMessageType": "text",
+  "userMessageType": "text",
+  "userInputVar" : "permissionDelete",
+  "nextResponse": 100
+},
+{
+  "id": 40,
+  "botMessage": "Please enter your query",
+  "botMessageType": "luis",
+  "appName": "assistance",
+  "userMessageType": "text",
+  "nextResponse": 40
+}]
