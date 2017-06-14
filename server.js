@@ -10,6 +10,7 @@ var apiapp = apiai('dde8e7dda0a9453da17fcf25cd88765f')
 var options = {
   sessionId: '1111'
 }
+var soc
 app.use(express.Router())
 app.use(express.static(path.join(__dirname, '/build/production')))
 server.listen(process.env.PORT || 3000)
@@ -37,10 +38,9 @@ request.on('response', function(response) {
 })
 
 request.on('error', function(error) {
-  console.log(error)
+  console.log('ERROR:: ' + error)
 })
 
-var soc
 io.on('connection', function(socket) {
   console.log('A user is connected')
   soc = socket
