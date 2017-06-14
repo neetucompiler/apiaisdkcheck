@@ -21,6 +21,11 @@ app.get('/', function(req, res) {
 
 var request = apiapp.textRequest('hello', options)
 
+function sendToClient(response, session) {
+  soc.emit('output', response)
+    //   session.send(response)
+}
+
 function sendToApiai(userInput) {
   console.log('user input: ' + userInput)
   request = apiapp.textRequest(userInput, options)
@@ -28,7 +33,7 @@ function sendToApiai(userInput) {
 
 request.on('response', function(response) {
   console.log(response)
-  sendToClient(response)
+//   sendToClient(response)
 })
 
 request.on('error', function(error) {
@@ -47,8 +52,3 @@ io.on('connection', function(socket) {
     console.log('A user is disconnected')
   })
 })
-
-function sendToClient(response, session) {
-  soc.emit('output', response)
-    //   session.send(response)
-}
