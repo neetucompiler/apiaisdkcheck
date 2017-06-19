@@ -30,6 +30,8 @@ function sendToApiai(userInput) {
   apiapp.textRequest(userInput, options)
     .on('response', function(response) {
       console.log(response)
+      if(response.find('bye') >= 0)
+         console.log('found bye');
       sendToClient(response.result.fulfillment.speech)
     })
     .on('error', function(error) {
@@ -48,4 +50,4 @@ io.on('connection', function(socket) {
   socket.on('disconnect', function() {
     console.log('A user is disconnected')
   })
-})
+}) 
