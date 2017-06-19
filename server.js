@@ -30,8 +30,9 @@ function sendToApiai(userInput) {
   apiapp.textRequest(userInput, options)
     .on('response', function(response) {
       console.log(typeof(response))
-//       if(response.find('bye') >= 0)
-//          console.log('found bye');
+      var str = JSON.stringify(response)
+      if(str.indexOf.substr(('bye')) > -1)
+         console.log('found bye');
       sendToClient(response.result.fulfillment.speech)
     })
     .on('error', function(error) {
