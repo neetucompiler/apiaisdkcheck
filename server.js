@@ -31,7 +31,7 @@ function sendToApiai(userInput) {
     .on('response', function(response) {
       console.log(typeof(response))
       var str = JSON.stringify(response)
-      if(str.indexOf.substr(('bye')) > -1)
+      if(str.indexOf('bye') > -1)
          console.log('found bye');
       sendToClient(response.result.fulfillment.speech)
     })
