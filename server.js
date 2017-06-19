@@ -29,9 +29,9 @@ function sendToApiai(userInput) {
   console.log('user input: ' + userInput)
   apiapp.textRequest(userInput, options)
     .on('response', function(response) {
-      console.log(response)
-      if(response.find('bye') >= 0)
-         console.log('found bye');
+      console.log(typeof(response))
+//       if(response.find('bye') >= 0)
+//          console.log('found bye');
       sendToClient(response.result.fulfillment.speech)
     })
     .on('error', function(error) {
