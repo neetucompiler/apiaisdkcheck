@@ -591,6 +591,7 @@ socket.on('output', function (data) {
   displayBotMessage(data)
 })
 socket.on('end', function (data) {
+  console.log('end listening socket')
   botMessage({
     message: 'Please provide us a feedback',
     type: 'feedback'
