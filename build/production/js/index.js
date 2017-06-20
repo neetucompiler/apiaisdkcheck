@@ -600,7 +600,7 @@ function feedbackMessage() {
   console.log(jQ('#feedbackTemplate').html())
   var temp = ''
   temp = jQ('#feedbackTemplate').clone()
-  jQ('#mCSB_1_container').append(temp)
+  jQ('#mCSB_1_container').append(temp.html())
 }
 
 
