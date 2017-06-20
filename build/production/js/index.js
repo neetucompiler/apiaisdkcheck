@@ -592,20 +592,12 @@ socket.on('output', function (data) {
 })
 socket.on('end', function (data) {
   console.log('end listening socket')
-  botMessage({
-    message: 'Please provide us a feedback',
-    type: 'feedback'
-  })
+  feedbackMessage()
 })
 
-function botMessage(botMsg) {
-  if (jQ('.message-input').val() !== '') {
-    return false
-  }
+function feedbackMessage() {
   var temp = ''
-  if (botMsg.type === 'feedback') {
-    temp = jQ('#feedbackTemplate').clone()
-  } 
+  temp = jQ('#feedbackTemplate').clone()
   jQ('#mCSB_1_container').append(temp)
 }
 
