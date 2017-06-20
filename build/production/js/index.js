@@ -596,6 +596,8 @@ socket.on('end', function (data) {
 })
 
 function feedbackMessage() {
+  console.log('inside feedback function')
+  console.log(jQ('#feedbackTemplate').html())
   var temp = ''
   temp = jQ('#feedbackTemplate').clone()
   jQ('#mCSB_1_container').append(temp)
