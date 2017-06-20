@@ -32,8 +32,16 @@ function sendToApiai(userInput) {
       console.log(typeof(response))
       var str = JSON.stringify(response)
       if(str.indexOf('bye') > -1)
-         console.log('found bye');
-      sendToClient(response.result.fulfillment.speech)
+        {
+          console.log('found bye');
+          var userend ="true"
+          soc.emit('end',userend)
+          sendToClient(response.result.fulfillment.speech)
+        }
+      else
+        {
+          sendToClient(response.result.fulfillment.speech)  
+        }
     })
     .on('error', function(error) {
       console.log('ERROR:: ' + error)

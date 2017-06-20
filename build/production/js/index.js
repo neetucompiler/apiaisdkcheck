@@ -590,6 +590,24 @@ jQ('#generalForm').submit(validate)
 socket.on('output', function (data) {
   displayBotMessage(data)
 })
+socket.on('end', function (data) {
+  botMessage({
+    message: 'Please provide us a feedback',
+    type: 'feedback'
+  })
+})
+
+function botMessage(botMsg) {
+  if (jQ('.message-input').val() !== '') {
+    return false
+  }
+  var temp = ''
+  if (botMsg.type === 'feedback') {
+    temp = jQ('#feedbackTemplate').clone()
+  } 
+  jQ('#mCSB_1_container').append(temp)
+}
+
 
 function autocompletePopulate (dataJson) {
   jQ('#userInputText').autocomplete({
