@@ -585,6 +585,16 @@ function sendToServer (appName, userQuery) {
   socket.emit(appName, userQuery)
 }
 
+jQ('#send_feedback').on('click', function (e) {
+	var feedback = {
+		comment: jQ('#comment').val(),
+		rating: jQ("input[name=rate]").val()
+	}
+	console.log("feedback: " + feedback)
+  sendToServer('feedback', feedback)
+	return false
+})
+
 jQ('#generalForm').submit(validate)
 
 socket.on('output', function (data) {
