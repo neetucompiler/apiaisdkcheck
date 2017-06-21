@@ -83,8 +83,8 @@
     </div>
   </div>
 	  <div id="templates">
-    <form action="/feedback" name="feedback" style="display:none" id="feedbackTemplate">
-      <div class="message new">
+    <div style="display:none" id="feedbackTemplate">
+      <form action="/feedback" name="feedback" class="message new">
         <div class="rate">
           Please provide a feedback
           <input type="radio" id="star5" name="rate" value="5" />
@@ -100,8 +100,8 @@
           <textarea id="comment" name="comments" placeholder="Please enter your comments here"></textarea>
         </div></br>
         <input type="submit" class="chatBtn" id="send_feedback" value="Send"></a>
-      </div>
-    </form>
+      </form>
+    </div>
 	<script>
 		jQ('body').on('click', '#send_feedback', function (e) {
 			console.log('clicked send feedback')
