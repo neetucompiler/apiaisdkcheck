@@ -107,18 +107,15 @@
 		jQ('body').on('click', '#send_feedback', function (e) {
 			console.log('clicked send feedback')
 			console.log(jQ('#comment').val())
-// 			$.ajax({
-//   			url:'https://apiaisdk.herokuapp.com/feedback',
-//   			type : 'POST', /*or POST*/
-//   			data: {'feedback',jQ('#comment').val()}, /*if any*/
-//   			success:function(){
-// 					console.log("ajax call successful")
-//   			},
-// 				error:function(){
-//    				console.log("ajax call successful")
-//   			}
-// 			});
-		})
+			$.ajax({
+  			url:'https://apiaisdk.herokuapp.com/feedback',
+  			type : 'POST',
+  			data: {'feedback':jQ('#comment').val()}
+			}).success(function(msg){
+					console.log(msg)
+					console.log("successful ajax call")
+			})
+			});
  </script> 
   <script type="text/javascript" src='js/jquery.mCustomScrollbar.concat.min.js'></script>
   <script type="text/javascript" src="js/socket.io.js"></script>
