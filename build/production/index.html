@@ -104,6 +104,11 @@
         <input type="submit" class="chatBtn" id="send_feedback" value="Send"></a>
       </form>
     </div>
+
+  <script type="text/javascript" src='js/jquery.mCustomScrollbar.concat.min.js'></script>
+  <script type="text/javascript" src="js/socket.io.js"></script>
+  <script type="text/javascript" src="js/data.js"></script>
+  <script type="text/javascript" src="js/index.js"></script>
 	<script>
 		var socket = io()
 		jQ('#send_feedback').on('click', function (e) {
@@ -112,14 +117,10 @@
 				rating: jQ("input[name=rate]").val()
 			}
 			console.log("feedback: " + feedback)
-// 			socket.emit('feedback', feedback)
+			socket.emit('feedback', feedback)
 			return false
 		})
- </script> 
-  <script type="text/javascript" src='js/jquery.mCustomScrollbar.concat.min.js'></script>
-  <script type="text/javascript" src="js/socket.io.js"></script>
-  <script type="text/javascript" src="js/data.js"></script>
-  <script type="text/javascript" src="js/index.js"></script>
+ 	</script> 
 </body>
 
 </html>
