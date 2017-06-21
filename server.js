@@ -7,6 +7,8 @@ var server = http.createServer(app)
 var io = require('socket.io')(server)
 var apiai = require('apiai')
 var apiapp = apiai('dde8e7dda0a9453da17fcf25cd88765f')
+var bodyParser = require('body-parser')
+var cookieParser = require('cookie-parser')
 
 var options = {
   sessionId: '1111'
@@ -14,9 +16,14 @@ var options = {
 var soc
 app.use(express.Router())
 app.use(express.static(path.join(__dirname, '/build/production')))
-server.listen(process.env.PORT || 3000)
+
+// BodyParser Middleware
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json())
+app.use(cookieParser())
+
 console.log(path.join(__dirname, '/build/production/index.html'))
-app.use(express.bodyParser());
+
 app.get('/', function(req, res) {
   res.sendfile(path.join(__dirname, '/build/production/index.html'))
 })
@@ -65,4 +72,9 @@ io.on('connection', function(socket) {
   socket.on('disconnect', function() {
     console.log('A user is disconnected')
   })
-}) 
+})
+
+app.set('port', (process.env.port || 3000))
+app.listen(app.get('port'), function(){
+  console.log('Server started on port: ' + app.get('port'))
+})
