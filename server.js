@@ -28,10 +28,10 @@ app.get('/', function(req, res) {
   res.sendfile(path.join(__dirname, '/build/production/index.html'))
 })
 
-app.post('/feedback', function(req, res){
-    console.log("someone came in here");
-    console.log(req.body);
-});
+// app.post('/feedback', function(req, res){
+//     console.log("someone came in here");
+//     console.log(req.body);
+// });
 
 function sendToClient(response, session) {
   soc.emit('output', response)
@@ -71,6 +71,10 @@ io.on('connection', function(socket) {
   })
   socket.on('disconnect', function() {
     console.log('A user is disconnected')
+  })
+  socket.on('feedback', function(data) {
+    console.log("someone came in here")
+    console.log(data)
   })
 })
 

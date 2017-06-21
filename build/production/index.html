@@ -84,7 +84,7 @@
   </div>
 	  <div id="templates">
     <div style="display:none" id="feedbackTemplate">
-      <form action="/feedback" method="post" name="feedback" class="message new">
+      <form name="feedback" class="message new">
         <div class="rate">
           <p>
 						Please provide a feedback
@@ -105,18 +105,23 @@
       </form>
     </div>
 	<script>
-		jQ('body').on('click', '#send_feedback', function (e) {
+		
 			console.log('clicked send feedback')
-			console.log(jQ('#comment').val())
-// 			jQ.ajax({
-//   			url:'https://apiaisdk.herokuapp.com/feedback',
-//   			type: 'POST',
-//   			data: {'feedback':jQ('#comment').val()}
-// 			}).success(function(msg){
-// 					console.log(msg)
-// 					console.log("successful ajax call")
-// 			})
-		});
+			console.log()
+		})
+		jQ(function () {
+			var socket = io()
+			jQ('body').on('click', '#send_feedback', function (e) {
+				var feedback = {
+					comment: jQ('#comment').val(),
+					rating: jQ("input[name=rate]").val()
+				}
+				console.log("feedback: " + feedback)
+				socket.emit('feedback', feedback)
+				jQ('#m').val('')
+				return false
+			})
+		})
  </script> 
   <script type="text/javascript" src='js/jquery.mCustomScrollbar.concat.min.js'></script>
   <script type="text/javascript" src="js/socket.io.js"></script>
