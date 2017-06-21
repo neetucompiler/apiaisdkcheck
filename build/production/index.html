@@ -105,18 +105,15 @@
       </form>
     </div>
 	<script>
-		jQ(function () {
-			var socket = io()
-			jQ('body').on('click', '#send_feedback', function (e) {
-				var feedback = {
-					comment: jQ('#comment').val(),
-					rating: jQ("input[name=rate]").val()
-				}
-				console.log("feedback: " + feedback)
-				socket.emit('feedback', feedback)
-				jQ('#m').val('')
-				return false
-			})
+		var socket = io()
+		jQ('#send_feedback').on('click', function (e) {
+			var feedback = {
+				comment: jQ('#comment').val(),
+				rating: jQ("input[name=rate]").val()
+			}
+			console.log("feedback: " + feedback)
+// 			socket.emit('feedback', feedback)
+			return false
 		})
  </script> 
   <script type="text/javascript" src='js/jquery.mCustomScrollbar.concat.min.js'></script>
