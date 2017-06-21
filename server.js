@@ -7,6 +7,7 @@ var server = http.createServer(app)
 var io = require('socket.io')(server)
 var apiai = require('apiai')
 var apiapp = apiai('dde8e7dda0a9453da17fcf25cd88765f')
+
 var options = {
   sessionId: '1111'
 }
@@ -15,7 +16,7 @@ app.use(express.Router())
 app.use(express.static(path.join(__dirname, '/build/production')))
 server.listen(process.env.PORT || 3000)
 console.log(path.join(__dirname, '/build/production/index.html'))
-
+app.use(express.bodyParser());
 app.get('/', function(req, res) {
   res.sendfile(path.join(__dirname, '/build/production/index.html'))
 })
