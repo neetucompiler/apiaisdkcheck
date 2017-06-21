@@ -76,5 +76,5 @@ io.on('connection', function(socket) {
 
 app.set('port', (process.env.PORT || 3000))
 server.listen(process.env.PORT, function(){
-  console.log('Server started on port: ' + process.env.PORT)
+  console.log('Server started on port: ' + process.env.PORT + app.get('port'))
 })
