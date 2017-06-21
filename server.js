@@ -23,7 +23,7 @@ app.get('/', function(req, res) {
 
 app.post('/feedback', function(req, res){
     console.log("someone came in here");
-    console.log(JSON.parse(req.body))
+    console.log(req.body);
 });
 
 function sendToClient(response, session) {
