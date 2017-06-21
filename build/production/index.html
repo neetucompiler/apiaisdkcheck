@@ -86,9 +86,9 @@
     <div style="display:none" id="feedbackTemplate">
       <form name="feedback" class="message new">
         <div class="rate">
-          <p>
+          <h2>
 						Please provide a feedback
-					</p>
+					</h2>
           <input type="radio" id="star5" name="rate" value="5" />
           <label for="star5" title="text">5 stars</label>
           <input type="radio" id="star4" name="rate" value="4" />
@@ -105,10 +105,6 @@
       </form>
     </div>
 	<script>
-		
-			console.log('clicked send feedback')
-			console.log()
-		})
 		jQ(function () {
 			var socket = io()
 			jQ('body').on('click', '#send_feedback', function (e) {
