@@ -85,7 +85,6 @@
 	  <div id="templates">
     <div style="display:none" id="feedbackTemplate">
       <div class="message new">
-        <br />
         <div class="rate">
           Please provide a feedback
           <input type="radio" id="star5" name="rate" value="5" />
@@ -98,10 +97,6 @@
           <label for="star2" title="text">2 stars</label>
           <input type="radio" id="star1" name="rate" value="1" />
           <label for="star1" title="text">1 star</label>
-          <br>
-          </br>
-          </br>
-          Enter your comments:
           <textarea id="comment" name="comments" placeholder="Please enter your comments here"></textarea>
       </div>
       </br>
@@ -110,7 +105,19 @@
   </div>
 	<script>
 		jQ('body').on('click', '#send_feedback', function (e) {
-			console.log('clicked send feedbcak')
+			console.log('clicked send feedback')
+			console.log(jQ('#comment').val())
+			$.ajax({
+  			url:'https://apiaisdk.herokuapp.com/feedback',
+  			type : 'POST', /*or POST*/
+  			data: {'feedback',jQ('#comment').val()}, /*if any*/
+  			success:function(){
+					console.log("ajax call successful")
+  			},
+				error:function(){
+   				console.log("ajax call successful")
+  			}
+			});
 		})
  </script> 
   <script type="text/javascript" src='js/jquery.mCustomScrollbar.concat.min.js'></script>

@@ -20,6 +20,11 @@ app.get('/', function(req, res) {
   res.sendfile(path.join(__dirname, '/build/production/index.html'))
 })
 
+app.post('/feedback', function(req, res){
+    console.log("someone came in here");
+    console.log(req.body.data);
+});
+
 function sendToClient(response, session) {
   soc.emit('output', response)
     //   session.send(response)
