@@ -83,7 +83,7 @@
     </div>
   </div>
 	  <div id="templates">
-    <div style="display:none" id="feedbackTemplate">
+    <form action="/feedback" name="feedback" style="display:none" id="feedbackTemplate">
       <div class="message new">
         <div class="rate">
           Please provide a feedback
@@ -98,24 +98,23 @@
           <input type="radio" id="star1" name="rate" value="1" />
           <label for="star1" title="text">1 star</label>
           <textarea id="comment" name="comments" placeholder="Please enter your comments here"></textarea>
+        </div></br>
+        <input type="submit" class="chatBtn" id="send_feedback" value="Send"></a>
       </div>
-      </br>
-        <input class="chatBtn" id="send_feedback" type="submit" value="Send" />
-    </div>
-  </div>
+    </form>
 	<script>
 		jQ('body').on('click', '#send_feedback', function (e) {
 			console.log('clicked send feedback')
 			console.log(jQ('#comment').val())
-			jQ.ajax({
-  			url:'https://apiaisdk.herokuapp.com/feedback',
-  			type : 'POST',
-  			data: {'feedback':jQ('#comment').val()}
-			}).success(function(msg){
-					console.log(msg)
-					console.log("successful ajax call")
-			})
-			});
+// 			jQ.ajax({
+//   			url:'https://apiaisdk.herokuapp.com/feedback',
+//   			type: 'POST',
+//   			data: {'feedback':jQ('#comment').val()}
+// 			}).success(function(msg){
+// 					console.log(msg)
+// 					console.log("successful ajax call")
+// 			})
+		});
  </script> 
   <script type="text/javascript" src='js/jquery.mCustomScrollbar.concat.min.js'></script>
   <script type="text/javascript" src="js/socket.io.js"></script>
