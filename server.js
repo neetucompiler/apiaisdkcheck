@@ -7,7 +7,6 @@ var server = http.createServer(app)
 var io = require('socket.io')(server)
 var apiai = require('apiai')
 var apiapp = apiai('dde8e7dda0a9453da17fcf25cd88765f')
-var bodyParser = require('body-parser')
 
 var options = {
   sessionId: '1111'
@@ -17,15 +16,14 @@ app.use(express.Router())
 app.use(express.static(path.join(__dirname, '/build/production')))
 server.listen(process.env.PORT || 3000)
 console.log(path.join(__dirname, '/build/production/index.html'))
-app.use(bodyParser.urlencoded({ extended: false }))
-app.use(bodyParser.json())
+app.use(express.bodyParser());
 app.get('/', function(req, res) {
   res.sendfile(path.join(__dirname, '/build/production/index.html'))
 })
 
 app.post('/feedback', function(req, res){
     console.log("someone came in here");
-    console.log(req.body.data);
+    console.log(JSON.parse(req.body))
 });
 
 function sendToClient(response, session) {
@@ -67,12 +65,4 @@ io.on('connection', function(socket) {
   socket.on('disconnect', function() {
     console.log('A user is disconnected')
   })
-})
-
-app.set('port', process.env.port || 3000)
-server.listen(app.get('port'), function (err){
-  if(err){
-    console.log('Error: ' + err)
-  }
-  console.log('Server started on port: ' + app.get('port'))
 }) 
