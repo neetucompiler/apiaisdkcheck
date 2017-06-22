@@ -9,6 +9,8 @@ var apiai = require('apiai')
 var apiapp = apiai('dde8e7dda0a9453da17fcf25cd88765f')
 var bodyParser = require('body-parser')
 var cookieParser = require('cookie-parser')
+var json2xls = require("json2xls")
+var fs = require("fs");
 
 var options = {
   sessionId: '1111'
@@ -75,6 +77,9 @@ io.on('connection', function(socket) {
   socket.on('feedback', function(data) {
     console.log("someone came in here")
     console.log(data)
+    var json = data
+    var xls = json2xls(json);
+    fs.writeFileSync('data.xlsx', xls, 'binary');
   })
 })
 
