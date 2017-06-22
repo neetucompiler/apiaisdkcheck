@@ -9,9 +9,8 @@ var apiai = require('apiai')
 var apiapp = apiai('dde8e7dda0a9453da17fcf25cd88765f')
 var bodyParser = require('body-parser')
 var cookieParser = require('cookie-parser')
-var json2xls = require("json2xls")
-var fs = require("fs");
-
+const pg = require('pg');
+var con = "postgres://mxqwsrophwcebu:41a7aa3ef1bf3e836796b883a2c0b78b03397ab2239fc8fc48caee1d5b32e854@ec2-54-83-49-44.compute-1.amazonaws.com:5432/dd0kuebp12emms"; 
 var options = {
   sessionId: '1111'
 }
@@ -77,9 +76,21 @@ io.on('connection', function(socket) {
   socket.on('feedback', function(data) {
     console.log("someone came in here")
     console.log(data)
-    var json = data
-    var xls = json2xls(json);
-    fs.writeFileSync('data.xlsx', xls, 'binary');
+    // pg connection
+    pg.defaults.ssl = true;
+    pg.connect(con, function(err, client) {
+      if (err) {
+        console.log (err);
+        console.log ("POSTGRES FAILED TO CONNECT");
+      }
+      console.log('Connected to postgres! Getting schemas...');
+      client
+      .query('CREATE TABLE Bottest(rating int,feedback text);')
+      .on('row', function(row) {
+        console.log ("table created");
+       });
+    });   
+    // pg connection end
   })
 })
 
