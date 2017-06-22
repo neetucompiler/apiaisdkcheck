@@ -85,9 +85,9 @@ io.on('connection', function(socket) {
       }
       console.log('Connected to postgres! Getting schemas...');
       client
-      .query('CREATE TABLE Bottest(rating int,feedback text);')
+      .query('INSERT INTO Bottest(rating,feedback) values '+data.rating+','+data.comment+';')
       .on('row', function(row) {
-        console.log ("table created");
+        console.log (" values inserted ");
        });
     });   
     // pg connection end
