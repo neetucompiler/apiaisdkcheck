@@ -85,7 +85,8 @@ io.on('connection', function(socket) {
       }
       console.log('Connected to postgres! Getting schemas...');
       client
-      .query('INSERT INTO Bottest(rating,feedback) values '+data.rating+','+data.comment+';')
+      //.query('INSERT INTO Bottest(rating,feedback) values '+data.rating+','+data.comment+';')
+      .query("INSERT INTO Bottest(rating,feedback) values($1, $2)", [1, 'it is awsm'])
       .on('row', function(row) {
         console.log (" values inserted ");
        });
