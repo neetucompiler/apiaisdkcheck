@@ -90,6 +90,7 @@ io.on('connection', function(socket) {
           container: container,
           blobs: blobs
         });
+        console.log(blobs);
      });
    }
   })
