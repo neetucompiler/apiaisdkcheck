@@ -9,8 +9,10 @@ var apiai = require('apiai')
 var apiapp = apiai('dde8e7dda0a9453da17fcf25cd88765f')
 var bodyParser = require('body-parser')
 var cookieParser = require('cookie-parser')
+var azure = require('azure')
+
+
 const pg = require('pg');
-var con = "postgres://mxqwsrophwcebu:41a7aa3ef1bf3e836796b883a2c0b78b03397ab2239fc8fc48caee1d5b32e854@ec2-54-83-49-44.compute-1.amazonaws.com:5432/dd0kuebp12emms"; 
 var options = {
   sessionId: '1111'
 }
@@ -76,22 +78,20 @@ io.on('connection', function(socket) {
   socket.on('feedback', function(data) {
     console.log("someone came in here")
     console.log(data)
-    // pg connection
-    pg.defaults.ssl = true;
-    pg.connect(con, function(err, client) {
-      if (err) {
-        console.log (err);
-        console.log ("POSTGRES FAILED TO CONNECT");
-      }
-      console.log('Connected to postgres! Getting schemas...');
-      client
-      //.query('INSERT INTO Bottest(rating,feedback) values '+data.rating+','+data.comment+';')
-      .query("INSERT INTO Bottest(rating,feedback) values($1, $2)", [1, 'it is awsm'])
-      .on('row', function(row) {
-        console.log (" values inserted ");
-       });
-    });   
-    // pg connection end
+    exports.blobs = function (request, response) {
+      var accessKey = 'x3UGY+Yk0pluV32GH6FwWwY3Ys7Jphc2o+0z392HeXBgcEWDv/Bp/OnnITr5BQ54IlJbV6eVjZt+qpwHbzzUng==';
+      var storageAccount = 'bottest';
+      var container = 'feedback';
+      var blobService = azure.createBlobService(storageAccount, accessKey);
+      //render blobs with blobs.jade view
+      blobService.listBlobs(container, function (error, blobs) {
+        response.render('blobs', {
+          error: error,
+          container: container,
+          blobs: blobs
+        });
+     });
+   }
   })
 })
 
