@@ -13,7 +13,7 @@ var json2csv = require('json2csv');
 var fs = require('fs');
 var Promise = require('promise'); //Synchronous execution flow
 var newLine = "\r\n";
-var fields = ['Rating', 'Feedback'];
+var fields = ['comment', 'rating'];
 // Azure Blob Connecting string
 var blobService = azure.createBlobService("DefaultEndpointsProtocol=https;AccountName=bottest;AccountKey=x3UGY+Yk0pluV32GH6FwWwY3Ys7Jphc2o+0z392HeXBgcEWDv/Bp/OnnITr5BQ54IlJbV6eVjZt+qpwHbzzUng==;EndpointSuffix=core.windows.net");
 const pg = require('pg');
@@ -91,10 +91,8 @@ io.on('connection', function(socket) {
         'Feedback': 'It seems to be okayyyyy.'
     }
   ];
-  console.log(appendThis)
-
     var toCsv = {
-      data: appendThis,
+      data: data,
       fields: fields,
       hasCSVColumnTitle: false
     };
