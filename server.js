@@ -81,8 +81,20 @@ io.on('connection', function(socket) {
   socket.on('feedback', function(data) {
     console.log("someone came in here")
     console.log(data)
+    var appendThis = [
+    {
+        'Rating': '1',
+        'Feedback': 'It is not so good'
+    },
+    {
+        'Rating': '3',
+        'Feedback': 'It seems to be okayyyyy.'
+    }
+  ];
+  console.log(appendThis)
+
     var toCsv = {
-      data: data,
+      data: appendThis,
       fields: fields,
       hasCSVColumnTitle: false
     };
